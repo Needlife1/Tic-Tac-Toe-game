@@ -1,0 +1,13 @@
+@use "../utilities/functions" as fn;
+@use "../utilities/variables" as var;
+
+body {
+  background-color: fn.get-color(background-color);
+  font-family: Raleway, sans-serif;
+  line-height: 1.55;
+  letter-spacing: calc(var.$index / 4);
+}
+
+button {
+  cursor: pointer;
+}

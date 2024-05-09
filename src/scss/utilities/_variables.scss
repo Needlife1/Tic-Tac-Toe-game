@@ -1,0 +1,20 @@
+$colors: (
+  "background-color": #000000,
+  "grey-primary": #ffffff40,
+  "hover-shadow-primary": #4f5a6360,
+  "light-primary": #e7e7e0,
+  "text-shadow": #d7cba0,
+);
+
+$font-weights: (
+  "Regular": 400,
+  "Black": 900,
+);
+
+$breakpoints: (
+  "sm": 375px,
+  "md": 768px,
+  "lg": 1263px,
+);
+
+$index: calc(1vw + 1vh);

@@ -1,0 +1,6 @@
+main {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  transform: translate3d(0, calc(var(--scrollTop) / 3), 0);
+}
