@@ -3,6 +3,8 @@ import { fileURLToPath } from 'url';
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import glob from 'fast-glob';
 import postcssConfig from './postcss.config';
+import imagemin from 'imagemin';
+import imageminWebp from 'imagemin-webp';
 
 const urlToPath = (url) => fileURLToPath(new URL(url));
 
@@ -18,10 +20,17 @@ export default defineConfig({
       jpg: {
         quality: 86,
       },
-      webp: {
-        quality: 86,
-      },
+      // webp: {
+      //   quality: 86,
+      // },
     }),
+    {
+      ...imagemin(['./src/img/**/*.{jpg,png,jpeg}'], {
+        destination: './src/img/webp/',
+        plugins: [imageminWebp({ quality: 86 })],
+      }),
+      apply: 'serve',
+    },
   ],
   css: {
     postcss: postcssConfig,
