@@ -20,9 +20,6 @@ export default defineConfig({
       jpg: {
         quality: 86,
       },
-      // webp: {
-      //   quality: 86,
-      // },
     }),
     {
       ...imagemin(['./src/img/**/*.{jpg,png,jpeg}'], {
