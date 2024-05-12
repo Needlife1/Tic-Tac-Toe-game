@@ -1,18 +1,4 @@
 @charset "UTF-8";
-@font-face {
-  font-family: "Raleway";
-  src: url(../../fonts/Raleway-Regular.woff) format("woff"), url(../../fonts/Raleway-Regular.woff) format("woff2");
-  font-weight: 400;
-  font-size: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Raleway";
-  src: url(../../fonts/Raleway-Black.woff) format("woff"), url(../../fonts/Raleway-Black.woff) format("woff2");
-  font-weight: 900;
-  font-size: normal;
-  font-display: swap;
-}
 /***
     The new CSS reset - version 1.11 (last updated 20.9.2023)
     GitHub page: https://github.com/elad2412/the-new-css-reset
@@ -132,7 +118,7 @@ meter {
 
 body {
   background-color: #000000;
-  font-family: Raleway, sans-serif;
+  font-family: Jaro, sans-serif;
   line-height: 1.55;
   letter-spacing: calc((1vw + 1vh) / 4);
 }
@@ -176,8 +162,8 @@ button {
   z-index: 2;
   transform: translate3d(0, calc(var(--scrollTop) / 2), 0);
   will-change: transform;
-  color: #e7e7e0;
-  text-shadow: 0 0 15px #d7cba0;
+  color: #e0e4e7;
+  text-shadow: 0 0 15px #78cee1;
 }
 
 .layer-header-title {
@@ -230,6 +216,11 @@ main {
   transform: translate3d(0, calc(var(--scrollTop) / 3), 0);
 }
 
+.main-cover {
+  padding-top: 200px;
+  position: relative;
+}
+
 .nickname-form {
   position: relative;
   top: 50%;
@@ -246,7 +237,7 @@ main {
   max-width: 200px;
   padding: 7px 11px;
   border-radius: 8px;
-  color: rgba(255, 255, 255, 0.2509803922);
+  color: #e0e4e7;
   background-color: transparent;
   border: 1px solid rgba(255, 255, 255, 0.2509803922);
   border: none;
@@ -254,8 +245,7 @@ main {
 }
 .nickname-input:hover, .nickname-input:focus {
   box-shadow: 0 0 0 5px rgba(79, 90, 99, 0.3764705882);
-  color: #e7e7e0;
-  text-shadow: 0 0 15px #d7cba0;
+  text-shadow: 0 0 15px #78cee1;
 }
 
 .nickname-btn {
@@ -263,18 +253,6 @@ main {
   top: 50%;
   left: 50%;
   transform: translate(-50%, 150%);
-  background-color: inherit;
-  color: rgba(255, 255, 255, 0.2509803922);
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2509803922);
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-}
-.nickname-btn:hover {
-  box-shadow: 0 0 0 5px rgba(79, 90, 99, 0.3764705882);
-  color: #e7e7e0;
-  text-shadow: 0 0 15px #d7cba0;
-}
-.nickname-btn span:last-child {
-  background-color: rgba(255, 255, 255, 0.2509803922);
 }
 
 .btn {
@@ -282,6 +260,10 @@ main {
   padding: 12px 24px;
   border-radius: 100px;
   font-size: calc((1vw + 1vh) / 1.3);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  background-color: inherit;
+  color: #e0e4e7;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2509803922);
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 .btn span:last-child {
@@ -291,10 +273,15 @@ main {
   border-radius: 100px;
   opacity: 0;
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  background-color: rgba(255, 255, 255, 0.2509803922);
 }
 .btn span {
   position: relative;
   z-index: 1;
+}
+.btn:hover {
+  box-shadow: 0 0 0 5px #e0e4e7;
+  text-shadow: 0 0 15px #78cee1;
 }
 .btn:active {
   scale: 0.95;
@@ -306,7 +293,63 @@ main {
   opacity: 1;
 }
 
+.playing-field {
+  border: 2px solid black;
+  max-width: 38vw;
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  border: none;
+  font-size: 64px;
+  gap: calc((1vw + 1vh) / 1.3);
+}
+.playing-field > div {
+  width: 100%;
+  height: calc((10vw + 10vh) / 2);
+  background-color: rgba(125, 142, 128, 0.5);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+.playing-field > div:nth-child(odd) {
+  background-color: rgba(27, 100, 37, 0.5);
+}
+.playing-field > div:hover {
+  filter: brightness(1.1);
+}
+
+.winners-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.winners-wruper {
+  display: flex;
+  gap: 30px;
+}
+
+.winners-count-item {
+  color: #e7e7e0;
+  padding: 5px;
+  text-shadow: 0 0 15px #d7cba0;
+  font-size: calc((1vw + 1vh) / 0.7);
+}
+
+.winners-count-btn {
+  font-size: calc((1vw + 1vh) / 1);
+  max-width: 200px;
+  color: #e0e4e7;
+}
+
 @media only screen and (min-width: 768px){
+  .main-cover {
+    padding-top: 150px;
+  }
   .nickname-form {
     flex-direction: row;
     gap: 5px;
