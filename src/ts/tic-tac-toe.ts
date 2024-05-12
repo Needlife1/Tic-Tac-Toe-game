@@ -6,7 +6,7 @@ let step: number = 1;
 
 const fragment = document.createDocumentFragment();
 
-arr.forEach((item: number, index: number) => {
+arr.forEach((_, index: number) => {
   const cell = document.createElement('div');
 
   cell.className = 'playing-field-item';
