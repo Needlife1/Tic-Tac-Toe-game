@@ -32,7 +32,7 @@
   max-width: 200px;
   padding: 7px 11px;
   border-radius: 8px;
-  color: fn.get-color(grey-primary);
+  color: fn.get-color(light-primary);
   background-color: transparent;
   border: 1px solid fn.get-color(grey-primary);
   border: none;
@@ -41,7 +41,6 @@
   &:hover,
   &:focus {
     box-shadow: 0 0 0 5px fn.get-color(hover-shadow-primary);
-    color: fn.get-color(light-primary);
     text-shadow: 0 0 15px fn.get-color(text-shadow);
   }
 }
@@ -51,19 +50,4 @@
     $position: absolute,
     $transform: translate(-50%, 150%)
   );
-
-  background-color: inherit;
-  color: fn.get-color(grey-primary);
-  box-shadow: 0 0 0 2px fn.get-color(grey-primary);
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-
-  &:hover {
-    box-shadow: 0 0 0 5px fn.get-color(hover-shadow-primary);
-    color: fn.get-color(light-primary);
-    text-shadow: 0 0 15px fn.get-color(text-shadow);
-  }
-
-  & span:last-child {
-    background-color: rgba(255, 255, 255, 0.2509803922);
-  }
 }

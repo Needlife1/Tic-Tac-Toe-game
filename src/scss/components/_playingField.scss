@@ -1,0 +1,32 @@
+@use "../utilities/variables" as var;
+
+.playing-field {
+  border: 2px solid black;
+  max-width: calc(19vw + 19vw);
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  border: none;
+  font-size: 64px;
+  gap: calc(var.$index / 1.3);
+
+  & > div {
+    width: 100%;
+    height: calc(var.$p / 2);
+    background-color: rgba(125, 142, 128, 0.5);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+  }
+
+  & > div:nth-child(odd) {
+    background-color: rgba(27, 100, 37, 0.5);
+  }
+
+  & > div:hover {
+    filter: brightness(1.1);
+  }
+}

@@ -1,0 +1,27 @@
+@use "../utilities/variables" as var;
+@use "../utilities/functions" as fn;
+
+.winners-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.winners-wruper {
+  display: flex;
+  gap: 30px;
+}
+
+.winners-count-item {
+  color: #e7e7e0;
+  padding: 5px;
+  text-shadow: 0 0 15px #d7cba0;
+  font-size: calc(var.$index / 0.7);
+}
+
+.winners-count-btn {
+  font-size: calc(var.$index / 1);
+  max-width: 200px;
+  color: fn.get-color(light-primary);
+}

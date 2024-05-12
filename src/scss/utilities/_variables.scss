@@ -2,13 +2,8 @@ $colors: (
   "background-color": #000000,
   "grey-primary": #ffffff40,
   "hover-shadow-primary": #4f5a6360,
-  "light-primary": #e7e7e0,
-  "text-shadow": #d7cba0,
-);
-
-$font-weights: (
-  "Regular": 400,
-  "Black": 900,
+  "light-primary": #e0e4e7,
+  "text-shadow": #78cee1,
 );
 
 $breakpoints: (
@@ -18,3 +13,5 @@ $breakpoints: (
 );
 
 $index: calc(1vw + 1vh);
+
+$p: calc(10vw + 10vh);
