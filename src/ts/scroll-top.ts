@@ -8,5 +8,5 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!isNaN(scrollTop)) {
       window.scrollTo(scrollTop, 0);
     }
-  }, 500);
+  }, 800);
 });
