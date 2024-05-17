@@ -127,17 +127,19 @@ button {
   cursor: pointer;
 }
 
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
+.not-winner {
+  opacity: 0;
+}
+
+.no-scroll {
   overflow: hidden;
+}
+
+.winner {
+  transform: translateY(-20px);
+  color: #e0e4e7;
+  border: 3.5px solid #e0e4e7;
+  box-shadow: 1px 1px 25px #e0e4e7;
 }
 
 .btn, .btn span:last-child, .nickname-form, .layers {
@@ -151,7 +153,9 @@ button {
 }
 
 .layers {
+  flex-direction: column;
   height: 100vh;
+  width: 100%;
   z-index: 2;
   text-transform: uppercase;
   font-weight: 900;
@@ -201,7 +205,7 @@ button {
   z-index: 3;
   width: 100%;
   height: calc((1vw + 1vh) * 9);
-  background-image: url(/scss/assets/main-layer3.png);
+  background-image: url(/scss/src/image/main-layer3.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -221,15 +225,24 @@ main {
   position: relative;
 }
 
+.footer {
+  width: 100%;
+  height: 1px;
+  background-color: transparent;
+}
+
 .nickname-form {
   position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, 40%);
+  position: absolute;
+  z-index: 5;
   max-width: 400px;
   height: 100px;
   gap: 15px;
   flex-direction: column;
+  transition: opacity 0.6s ease;
 }
 
 .nickname-input {
@@ -303,6 +316,7 @@ main {
   border: none;
   font-size: 64px;
   gap: calc((1vw + 1vh) / 1.3);
+  opacity: 0;
 }
 .playing-field > div {
   width: 100%;
@@ -319,6 +333,12 @@ main {
 }
 .playing-field > div:hover {
   filter: brightness(1.1);
+}
+
+.playing-field-item {
+  font-size: calc((1vw + 1vh) * 2);
+  text-shadow: 0 0 15px #78cee1;
+  transition: transform 0.5s, color 0.5s, opacity 1s, border 1s, box-shadow 1s;
 }
 
 .winners-count {
@@ -341,7 +361,7 @@ main {
 }
 
 .winners-count-btn {
-  font-size: calc((1vw + 1vh) / 1);
+  font-size: calc((1vw + 1vh) / 1.3);
   max-width: 200px;
   color: #e0e4e7;
 }
@@ -353,9 +373,14 @@ main {
   .nickname-form {
     flex-direction: row;
     gap: 5px;
-    transform: translate(-50%, 100%);
   }
   .nickname-input {
     padding: 12px 16px;
+  }
+}
+
+@media only screen and (min-width: 1263px){
+  .nickname-form {
+    transform: translate(-50%, 80%);
   }
 }

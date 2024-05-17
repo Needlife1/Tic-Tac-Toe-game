@@ -3,63 +3,66 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="" />
+  <link rel="icon" type="image/svg+xml" href="https://fontawesome.com/icons/gamepad?f=classic&s=solid" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&family=Poetsen+One&display=swap"
     rel="stylesheet">
   <title>Tic-Tac-Toe-game</title>
-  <script type="module" crossorigin src="/scss/assets/index-xOQBvHOk.js"></script>
-  <link rel="stylesheet" crossorigin href="/scss/assets/index.css">
+  <script type="module" crossorigin src="/scss/assets/index-DI4QSyxH.js"></script>
+  <link rel="stylesheet" crossorigin href="/scss/src/image/index.css">
 </head>
 
-<body>
+<body class="no-scroll">
   <header class="header">
     <div class="layers">
       <div class="layer-header">
         <h1 class="layer-header-title">Tic-Tac-Toe-game</h1>
         <p class="layer-header-caption">Write your nickname</p>
-
-        <!-- <form class="nickname-form" id="nickname-form">
-          <input class="nickname-input" type="text" id="nickname1" name="Player-1" placeholder="Player-1">
-          <input class="nickname-input" type="text" id="nickname2" name="Player-2" placeholder="Player-2">
-
-          <button class="btn nickname-btn" type="button">
-            <span>Start</span>
-            <span></span>
-          </button>
-
-        </form> -->
-
       </div>
 
 
-      <div class="layer layers-base" style="background-image: url(/scss/assets/main-layer1.png);"></div>
-      <div class="layer layers-middle" style="background-image: url(/scss/assets/main-layer2.png);"></div>
-      <div class="layer layers-front" style="background-image: url(/scss/assets/main-layer4.png);"></div>
+      <form class="nickname-form" id="nickname-form">
+        <input class="nickname-input" type="text" id="nickname1" name="player1" placeholder="Player-1">
+        <input class="nickname-input" type="text" id="nickname2" name="player2" placeholder="Player-2">
+
+        <button class="btn nickname-btn" type="submit">
+          <span>Start</span>
+          <span></span>
+        </button>
+
+      </form>
+
+      <div class="layer layers-base" style="background-image: url(/scss/src/image/main-layer1.png);"></div>
+      <div class="layer layers-middle" style="background-image: url(/scss/src/image/main-layer2.png);"></div>
+      <div class="layer layers-front" style="background-image: url(/scss/src/image/main-layer4.png);"></div>
     </div>
   </header>
 
 
-  <main class="main" style="background-image:url(/scss/assets/dungeon.jpg);">
+  <main class="main" style="background-image:url(/scss/src/image/dungeon.jpg);">
     <div class="main-cover">
-      <div class="playing-field"></div>
+      <div class="playing-field" data-aos="zoom-in"></div>
 
       <div class="winners-count">
 
         <div class="winners-wruper">
-          <span class="winners-count-item">User1: 0</span>
-          <span class="winners-count-item">User2: 0</span>
 
         </div>
-        <button class="btn winners-count-btn" style="color:azure">
+        <button class="btn winners-count-btn">
           <span>New game</span>
           <span></span>
         </button>
       </div>
     </div>
   </main>
+
+
+
+
+  <footer class="footer">
+  </footer>
 
 
 </body>
