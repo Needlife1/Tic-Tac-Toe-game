@@ -205,7 +205,7 @@ button {
   z-index: 3;
   width: 100%;
   height: calc((1vw + 1vh) * 9);
-  background-image: url(/scss/src/image/main-layer3.png);
+  background-image: url(/Tic-Tac-Toe-game/src/image/main-layer3.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
