@@ -33,10 +33,11 @@ function click(e: MouseEvent) {
   step = step === 1 ? 2 : 1;
 }
 
+const cells: NodeListOf<HTMLElement> = document.querySelectorAll(
+  '.playing-field-item',
+);
+
 function render() {
-  const cells: NodeListOf<HTMLElement> = document.querySelectorAll(
-    '.playing-field-item',
-  );
   cells.forEach((cell: HTMLElement, i: number) => {
     switch (arr[i]) {
       case 1:
@@ -73,6 +74,18 @@ function checkWinner(step: number) {
     const winIndexes = winPattern.split('').map(Number);
     if (winIndexes.every((index) => indexStep.includes(index))) {
       showWin(step);
+
+      if (winIndexes.length > 0) {
+        const winSet = new Set(winIndexes);
+
+        cells.forEach((cell, index) => {
+          if (winSet.has(index)) {
+            cell.classList.add('winner');
+          } else {
+            cell.classList.add('not-winner');
+          }
+        });
+      }
       return;
     }
   }
@@ -80,13 +93,28 @@ function checkWinner(step: number) {
   if (!arr.includes(0)) showDraw();
 }
 
+let counterUser1 = 0;
+let counterUser2 = 0;
+
 function showWin(step: number) {
-  console.log(`Победил ${step === 1 ? 'X' : 'O'}`);
+  if (step === 1) {
+    counterUser1++;
+    const user1 = document.getElementById('user-1');
+    if (user1) {
+      user1.textContent = `${counterUser1}`;
+    }
+  } else {
+    counterUser2++;
+    const user2 = document.getElementById('user-2');
+    if (user2) {
+      user2.textContent = `${counterUser2}`;
+    }
+  }
+
   playingField?.removeEventListener('click', click);
 }
 
 function showDraw() {
-  console.log('Ничья');
   playingField?.removeEventListener('click', click);
 }
 
@@ -97,6 +125,15 @@ const winnersCountBtn: HTMLButtonElement | null =
 
 if (winnersCountBtn) {
   winnersCountBtn.addEventListener('click', () => {
-    location.reload();
+    arr.fill(0);
+    step = 1;
+
+    cells.forEach((el) => {
+      el.textContent = '';
+      el.classList.remove('winner');
+      el.classList.remove('not-winner');
+    });
+
+    playingField?.addEventListener('click', click);
   });
 }

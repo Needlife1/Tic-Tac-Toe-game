@@ -1,0 +1,16 @@
+@use "../utilities/functions" as fn;
+
+.not-winner {
+  opacity: 0;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.winner {
+  transform: translateY(-20px);
+  color: fn.get-color(light-primary);
+  border: 3.5px solid fn.get-color(light-primary);
+  box-shadow: 1px 1px 25px fn.get-color(light-primary);
+}
