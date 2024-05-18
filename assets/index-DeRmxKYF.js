@@ -39,12 +39,6 @@
     fetch(link.href, fetchOpts);
   }
 })();
-window.addEventListener("scroll", function() {
-  document.documentElement.style.setProperty(
-    "--scrollTop",
-    `${this.scrollY}px`
-  );
-});
 const nicknameForm = document.querySelector(".nickname-form");
 const winnersWruper = document.querySelector(".winners-wruper");
 nicknameForm == null ? void 0 : nicknameForm.addEventListener("submit", getNames);
@@ -132,6 +126,8 @@ arr.forEach((_, index) => {
   const cell = document.createElement("div");
   cell.className = "playing-field-item";
   cell.dataset.n = index.toString();
+  cell.setAttribute("role", "button");
+  cell.setAttribute("tabindex", "0");
   fragment.appendChild(cell);
 });
 if (playingField !== null) {
@@ -149,11 +145,11 @@ function click(e) {
   checkWinner(step);
   step = step === 1 ? 2 : 1;
 }
-const cells = document.querySelectorAll(
+const cells$1 = document.querySelectorAll(
   ".playing-field-item"
 );
 function render() {
-  cells.forEach((cell, i) => {
+  cells$1.forEach((cell, i) => {
     switch (arr[i]) {
       case 1:
         cell.textContent = "X";
@@ -189,7 +185,7 @@ function checkWinner(step2) {
       showWin(step2);
       if (winIndexes.length > 0) {
         const winSet = new Set(winIndexes);
-        cells.forEach((cell, index) => {
+        cells$1.forEach((cell, index) => {
           if (winSet.has(index)) {
             cell.classList.add("winner");
           } else {
@@ -230,7 +226,7 @@ if (winnersCountBtn) {
   winnersCountBtn.addEventListener("click", () => {
     arr.fill(0);
     step = 1;
-    cells.forEach((el) => {
+    cells$1.forEach((el) => {
       el.textContent = "";
       el.classList.remove("winner");
       el.classList.remove("not-winner");
@@ -238,6 +234,12 @@ if (winnersCountBtn) {
     playingField == null ? void 0 : playingField.addEventListener("click", click);
   });
 }
+window.addEventListener("scroll", function() {
+  document.documentElement.style.setProperty(
+    "--scrollTop",
+    `${this.scrollY}px`
+  );
+});
 document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
     const position = getComputedStyle(
@@ -248,4 +250,45 @@ document.addEventListener("DOMContentLoaded", () => {
       window.scrollTo(scrollTop, 0);
     }
   }, 800);
+});
+const cells = document.querySelectorAll(
+  ".playing-field-item"
+);
+cells.forEach((playingFieldItem) => {
+  playingFieldItem.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      click(e);
+    } else if (e.key === "ArrowUp" || e.key === "ArrowDown" || e.key === "ArrowLeft" || e.key === "ArrowRight") {
+      const currentIndex = Array.from(cells).indexOf(playingFieldItem);
+      let nextIndex = -1;
+      switch (e.key) {
+        case "ArrowUp":
+          nextIndex = currentIndex - 3;
+          break;
+        case "ArrowDown":
+          nextIndex = currentIndex + 3;
+          break;
+        case "ArrowLeft":
+          nextIndex = currentIndex - 1;
+          break;
+        case "ArrowRight":
+          nextIndex = currentIndex + 1;
+          break;
+      }
+      if (nextIndex >= 0 && nextIndex < cells.length) {
+        cells[nextIndex].focus();
+      }
+    }
+  });
+});
+const nicknameBtn = document.querySelector(
+  ".nickname-btn"
+);
+const focusableElements = document.querySelectorAll(
+  ".nickname-input, .nickname-btn"
+);
+nicknameBtn == null ? void 0 : nicknameBtn.addEventListener("click", () => {
+  focusableElements.forEach((element) => {
+    element.setAttribute("tabindex", "-1");
+  });
 });

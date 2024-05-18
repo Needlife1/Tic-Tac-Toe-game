@@ -133,6 +133,7 @@ button {
 
 .no-scroll {
   overflow: hidden;
+  padding-right: 21px;
 }
 
 .winner {
@@ -140,6 +141,19 @@ button {
   color: #e0e4e7;
   border: 3.5px solid #e0e4e7;
   box-shadow: 1px 1px 25px #e0e4e7;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 .btn, .btn span:last-child, .nickname-form, .layers {
@@ -205,7 +219,7 @@ button {
   z-index: 3;
   width: 100%;
   height: calc((1vw + 1vh) * 9);
-  background-image: url(/Tic-Tac-Toe-game/src/image/main-layer3.png);
+  background-image: url(/Tic-Tac-Toe-game/assets/main-layer3.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -296,6 +310,9 @@ main {
   box-shadow: 0 0 0 5px #e0e4e7;
   text-shadow: 0 0 15px #78cee1;
 }
+.btn:focus {
+  border: 1px solid #78cee1;
+}
 .btn:active {
   scale: 0.95;
 }
@@ -333,6 +350,10 @@ main {
 }
 .playing-field > div:hover {
   filter: brightness(1.1);
+}
+.playing-field > div:focus {
+  filter: brightness(1.1);
+  border: 1px solid #78cee1;
 }
 
 .playing-field-item {
