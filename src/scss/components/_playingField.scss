@@ -31,6 +31,11 @@
   & > div:hover {
     filter: brightness(1.1);
   }
+
+  & > div:focus {
+    filter: brightness(1.1);
+    border: 1px solid fn.get-color(text-shadow);
+  }
 }
 
 .playing-field-item {

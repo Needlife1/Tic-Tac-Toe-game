@@ -45,8 +45,7 @@ export default defineConfig({
       ),
 
       output: {
-        // assetFileNames: 'assets/[name].[ext]',
-        assetFileNames: 'src/image/[name].[ext]',
+        assetFileNames: 'assets/[name].[ext]',
       },
     },
   },

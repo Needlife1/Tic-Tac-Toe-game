@@ -6,6 +6,7 @@
 
 .no-scroll {
   overflow: hidden;
+  padding-right: 21px;
 }
 
 .winner {
@@ -13,4 +14,18 @@
   color: fn.get-color(light-primary);
   border: 3.5px solid fn.get-color(light-primary);
   box-shadow: 1px 1px 25px fn.get-color(light-primary);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }

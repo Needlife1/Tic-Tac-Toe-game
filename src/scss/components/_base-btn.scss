@@ -36,6 +36,10 @@
     text-shadow: 0 0 15px fn.get-color(text-shadow);
   }
 
+  &:focus {
+    border: 1px solid fn.get-color(text-shadow);
+  }
+
   &:active {
     scale: 0.95;
   }

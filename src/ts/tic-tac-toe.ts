@@ -11,6 +11,8 @@ arr.forEach((_, index: number) => {
 
   cell.className = 'playing-field-item';
   cell.dataset.n = index.toString();
+  cell.setAttribute('role', 'button');
+  cell.setAttribute('tabindex', '0');
   fragment.appendChild(cell);
 });
 
@@ -18,7 +20,7 @@ if (playingField !== null) {
   playingField.appendChild(fragment);
 }
 
-function click(e: MouseEvent) {
+export function click(e: MouseEvent | KeyboardEvent) {
   const target = e.target as HTMLElement;
   if (!target) return;
 
