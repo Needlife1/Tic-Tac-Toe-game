@@ -121,6 +121,7 @@ body {
   font-family: Jaro, sans-serif;
   line-height: 1.55;
   letter-spacing: calc((1vw + 1vh) / 4);
+  overflow: hidden;
 }
 
 button {
@@ -133,7 +134,6 @@ button {
 
 .no-scroll {
   overflow: hidden;
-  padding-right: 21px;
 }
 
 .winner {
