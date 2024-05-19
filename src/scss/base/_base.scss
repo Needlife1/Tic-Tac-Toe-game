@@ -6,6 +6,7 @@ body {
   font-family: Jaro, sans-serif;
   line-height: 1.55;
   letter-spacing: calc(var.$index / 4);
+  overflow: hidden;
 }
 
 button {
